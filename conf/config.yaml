@@ -1,0 +1,24 @@
+#http server
+httpPort: 88
+debug : true
+jwtEncrtpy : jlkwdaa
+
+#Mysql:
+dbType: mysql
+dbUser: root
+dbHost: localhost:33006
+dbPassword: 123456
+dbName: AirLandCommand
+#tablePrefix :
+
+# redis
+redisAddr: localhost:6379
+redisPassword: "123456"
+redisDefaultDB: 0
+
+# user
+loginExpire: 73600
+
+# 消息服务的地址
+wsHost: http://127.0.0.1:8002
+
