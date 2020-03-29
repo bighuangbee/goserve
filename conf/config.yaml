@@ -9,7 +9,6 @@ dbUser: root
 dbHost: localhost:33006
 dbPassword: 123456
 dbName: AirLandCommand
-#tablePrefix :
 
 # redis
 redisAddr: localhost:6379
@@ -19,6 +18,8 @@ redisDefaultDB: 0
 # user
 loginExpire: 73600
 
-# 消息服务的地址
-wsHost: http://127.0.0.1:8002
+# Casbin角色模型的文件路径
+rbacModelFilePath: conf/rbac_model.conf
+
+
 

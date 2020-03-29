@@ -22,6 +22,9 @@ type Config struct {
 	RedisAddr 		string `yaml:"redisAddr"`
 	RedisPassword 	string `yaml:"redisPassword"`
 	RedisDefaultDB 	int `yaml:"redisDefaultDB"`
+
+	RbacModelFilePath 	string `yaml:"rbacModelFilePath"`
+
 }
 
 func Setup(path string){
