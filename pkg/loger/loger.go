@@ -8,6 +8,7 @@ import (
 	"goserve/pkg/file"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -73,25 +74,42 @@ func newLocalFileLogHook(level logrus.Level, formatter logrus.Formatter) logrus.
 }
 
 func Infof(format string, args ...interface{}){
+	setPrefix("Infof")
 	loger.Infof(format, args)
 }
 
 func Info(args ...interface{}){
+	setPrefix("Info")
 	loger.Info(args)
 }
 
 func Error(args ...interface{}){
+	setPrefix("Error")
 	loger.Error(args)
 }
 
 
 type LogerFormatter struct{}
 
+
+// setPrefix set the prefix of the log output
+func setPrefix(level string) {
+
+	pc, file, line, ok := runtime.Caller(2)
+	if ok {
+		funcName := runtime.FuncForPC(pc).Name()
+		funcName = strings.TrimPrefix(filepath.Ext(funcName), ".")
+		timestamp := time.Now().Local().Format("2006-01-02 15:04:05")
+
+		fmt.Printf("[%s][%s][%s:%d:%s]", strings.ToUpper(level), timestamp, filepath.Base(file), line, funcName)
+	}
+}
+
 /*
 	日志输出格式
  */
 func (s *LogerFormatter) Format(entry *logrus.Entry) ([]byte, error) {
-	timestamp := time.Now().Local().Format("2006-01-02 15:04:05")
-	msg := fmt.Sprintf("[%s] %s %s \n",  strings.ToUpper(entry.Level.String()), timestamp, entry.Message)
+
+	msg := fmt.Sprintf(" %s \n", entry.Message)
 	return []byte(msg), nil
 }

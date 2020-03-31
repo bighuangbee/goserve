@@ -1,5 +1,7 @@
 package model
 
+import "goserve/pkg/dbModel"
+
 type SysMenu struct {
 	Model
 
@@ -13,6 +15,6 @@ type SysMenu struct {
 }
 
 func GetMenu(where map[string]interface{}) (menu []SysMenu) {
-	 DB.Model(&SysMenu{}).Where(where).Find(&menu)
+	 dbModel.DB.Model(&SysMenu{}).Where(where).Find(&menu)
 	 return
 }

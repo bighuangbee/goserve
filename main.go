@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"goserve/pkg/casbin"
 	"goserve/pkg/config"
 	"goserve/pkg/dbModel"
 	"goserve/pkg/loger"
+	"goserve/pkg/permissions"
 	"goserve/pkg/redis"
 	"goserve/routers"
 	"net/http"
@@ -16,7 +16,8 @@ func init(){
 	loger.Setup("logs")
 	dbModel.Setup()
 	redis.Setup()
-	casbin.Setup()
+	permissions.Setup()
+
 }
 
 func main(){
@@ -24,7 +25,7 @@ func main(){
 	sub := "alice" 	// 将要访问用户的用户或角色
 	obj := "data1" 	// 将要访问的资源
 	act := "read" 	// 用户或角色对资源执行的操作
-	loger.Info("casbin test", casbin.Enforcer.Enforce(sub, obj, act))
+	loger.Info("permissions test", permissions.Enforcer.Enforce(sub, obj, act))
 
 	gin.SetMode("debug")
 	server := &http.Server{

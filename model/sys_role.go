@@ -1,5 +1,7 @@
 package model
 
+import "goserve/pkg/dbModel"
+
 type SysRole struct {
 	Model
 
@@ -12,10 +14,10 @@ type SysRole struct {
 }
 
 func GetRole(ids []string) (roles []*SysRole) {
-	 DB.Model(&SysRole{}).Where("id in (?)", ids).Scan(&roles)
+	dbModel.DB.Model(&SysRole{}).Where("id in (?)", ids).Scan(&roles)
 	 return
 }
 func GetRoleList() (roles []*SysRole){
-	DB.Model(&SysUser{}).Find(&roles)
+	dbModel.DB.Model(&SysUser{}).Find(&roles)
 	return roles
 }

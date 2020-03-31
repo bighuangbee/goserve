@@ -1,6 +1,7 @@
 package model
 
 import (
+	"goserve/pkg/dbModel"
 	"strconv"
 )
 
@@ -19,13 +20,13 @@ func AddUserRoles(userId int, data []string) (bool){
 			UserId: userId,
 			RoleId: role_id,
 		}
-		DB.Create(&userRole)
+		dbModel.DB.Create(&userRole)
 	}
 	return true
 }
 
 func UpdateUserRole(userId int, data []string) bool{
-	DB.Where("sys_user_id = ?", userId).Delete(&SysUserRoles{})
+	dbModel.DB.Where("sys_user_id = ?", userId).Delete(&SysUserRoles{})
 
 	for _, val := range data {
 		role_id,_ := strconv.Atoi(val)
@@ -33,7 +34,7 @@ func UpdateUserRole(userId int, data []string) bool{
 			UserId: userId,
 			RoleId: role_id,
 		}
-		DB.Create(&userRole)
+		dbModel.DB.Create(&userRole)
 	}
 	return true
 }

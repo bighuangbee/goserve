@@ -1,4 +1,4 @@
-package casbin
+package permissions
 
 import (
 	"github.com/casbin/casbin"
@@ -41,17 +41,17 @@ func testRbac(){
 	sub := "role1" 			// 用户或角色
 	obj := "/user/login" 	// 将要访问的资源
 	act := "read" 			// 对资源执行的操作
-	loger.Info("casbin Enforce: ", casbin.Enforcer.Enforce(sub, obj, act))	// [casbin Enforce：  true]
+	loger.Info("permissions Enforce: ", Enforcer.Enforce(sub, obj, act))	// [permissions Enforce：  true]
 
 	sub = "alice1" 			// 用户或角色
 	obj = "/user/login" 	// 将要访问的资源
 	act = "read" 			// 对资源执行的操作
-	loger.Info("casbin Enforce: ", casbin.Enforcer.Enforce(sub, obj, act))	// [casbin Enforce：  true]
+	loger.Info("permissions Enforce: ", Enforcer.Enforce(sub, obj, act))	// [permissions Enforce：  true]
 
 	sub = "alice1" 			// 用户或角色
 	obj = "/user/logout" 	// 将要访问的资源
 	act = "read" 			// 对资源执行的操作
-	loger.Info("casbin Enforce: ", casbin.Enforcer.Enforce(sub, obj, act))	// [casbin Enforce：  false]
+	loger.Info("permissions Enforce: ", Enforcer.Enforce(sub, obj, act))	// [permissions Enforce：  false]
 }
 
 
@@ -72,7 +72,9 @@ func Setup(){
 		return
 	}
 
-	loger.Info("Casbin RBAC SetUp Success...")
+	testRbac()
+
+	loger.Info("Casbin SetUp Success...")
 }
 
 // 自定义规则函数
