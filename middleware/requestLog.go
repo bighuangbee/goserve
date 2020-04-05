@@ -3,7 +3,7 @@ package middleware
 import (
 	"bytes"
 	"github.com/gin-gonic/gin"
-	"goserve/pkg/loger"
+	"goserve/modules/loger"
 	"time"
 )
 

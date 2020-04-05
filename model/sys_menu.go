@@ -1,6 +1,6 @@
 package model
 
-import "goserve/pkg/dbModel"
+import "goserve/modules/dbModel"
 
 type SysMenu struct {
 	Model

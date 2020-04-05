@@ -3,8 +3,8 @@ package dbModel
 import (
 	"fmt"
 	"github.com/jinzhu/gorm"
-	"goserve/pkg/config"
-	"goserve/pkg/loger"
+	"goserve/modules/config"
+	"goserve/modules/loger"
 
 	_ "database/sql/driver"
 	_ "github.com/jinzhu/gorm/dialects/mysql"

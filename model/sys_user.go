@@ -2,7 +2,7 @@ package model
 
 import (
 	"goserve/model/pagination"
-	"goserve/pkg/dbModel"
+	"goserve/modules/dbModel"
 )
 
 type SysUser struct {

@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"goserve/model"
 	"goserve/model/pagination"
-	"goserve/pkg/message"
-	"goserve/pkg/respone"
+	"goserve/modules/message"
+	"goserve/modules/respone"
 )
 
 func Inde(c *gin.Context){

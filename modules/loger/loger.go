@@ -5,7 +5,7 @@ import (
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
-	"goserve/pkg/file"
+	"goserve/modules/file"
 	"os"
 	"path/filepath"
 	"runtime"

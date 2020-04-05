@@ -1,7 +1,7 @@
 package model
 
 import (
-	"goserve/pkg/dbModel"
+	"goserve/modules/dbModel"
 	"strconv"
 )
 

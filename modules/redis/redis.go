@@ -2,8 +2,8 @@ package redis
 
 import (
 	"github.com/go-redis/redis"
-	"goserve/pkg/config"
-	"goserve/pkg/loger"
+	"goserve/modules/config"
+	"goserve/modules/loger"
 )
 
 var Redis *redis.Client
